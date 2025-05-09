@@ -104,10 +104,12 @@ class CFG:
             rules_str.append(f"{nt}/{productions}")
         return f"{nts_str}#{ts_str}#{';'.join(rules_str)}"
 
-# Example Usage
-# input_string = "S#a;b;c;d#S/Sa,Sb,c,d"
-input_string = "S;T;L#a;b;c;d;i#S/ScTi,La,Ti,b;T/aSb,LabS,i;L/SdL,Si"
 
-cfg = CFG(input_string)
-cfg.eliminate_left_recursion()
-print(cfg.toString())
+if __name__ == "__main__":
+    # Example input string
+    # input_string = "S#a;b;c;d#S/Sa,Sb,c,d"
+    input_string = "S;T;L#a;b;c;d;i#S/ScTi,La,Ti,b;T/aSb,LabS,i;L/SdL,Si"
+
+    cfg = CFG(input_string)
+    cfg.eliminate_left_recursion()
+    print(cfg.toString())
